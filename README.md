@@ -31,14 +31,19 @@ allprojects {
 	    <version>1.0.2</version>
 	</dependency>
   
-  ```Java
+```Java
  
     SerialControl serialControl = SerialControl.getInstance();
     //SerialListener
     //TestSerialListener
     serialControl.setSerialListener(); 
-     ```
-       ```Java
+```
+ 
+ 
+ 
+ 
+ 
+ ```Java
      try {
             SerialPort serialPort = new SerialPort(new File("/dev/ttyS4"),115200,0);
 
