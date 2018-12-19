@@ -6,37 +6,39 @@ How to use ?
 
 
 allprojects {
-		repositories {
-			...
-			maven { url 'https://www.jitpack.io' }
-		}
+	repositories {
+		maven { url 'https://www.jitpack.io' }
 	}
+}
   
-  dependencies {
-	   implementation 'com.github.INTKILOW:SerialApi:1.0.2'
-	}
+dependencies {
+	implementation 'com.github.INTKILOW:SerialApi:1.0.2'
+}
   
 2、maven
   
-  <repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://www.jitpack.io</url>
-		</repository>
-	</repositories>
+<repositories>
+	<repository>
+	 	<id>jitpack.io</id>
+		<url>https://www.jitpack.io</url>
+	</repository>
+</repositories>
   
-  <dependency>
-	    <groupId>com.github.INTKILOW</groupId>
-	    <artifactId>SerialApi</artifactId>
-	    <version>1.0.2</version>
-	</dependency>
+<dependency>
+	<groupId>com.github.INTKILOW</groupId>
+	<artifactId>SerialApi</artifactId>
+	<version>1.0.2</version>
+</dependency>
+  
+  
+  
   
 ```Java
  
-    SerialControl serialControl = SerialControl.getInstance();
-    //SerialListener
-    //TestSerialListener
-    serialControl.setSerialListener(); 
+SerialControl serialControl = SerialControl.getInstance();
+//SerialListener
+//TestSerialListener
+serialControl.setSerialListener(); 
 ```
  
  
@@ -44,11 +46,11 @@ allprojects {
  
  
  ```Java
-     try {
-            SerialPort serialPort = new SerialPort(new File("/dev/ttyS4"),115200,0);
+try {
+    SerialPort serialPort = new SerialPort(new File("/dev/ttyS4"),115200,0);
 
-            serialPort.send("你好");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    serialPort.send("你好");
+} catch (Exception e) {
+    e.printStackTrace();
+}
   ```
