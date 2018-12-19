@@ -1,7 +1,7 @@
 # SerialApi
 
 How to use ?
-```Java
+
 1、gradle
 
 
@@ -31,15 +31,13 @@ allprojects {
 	    <version>1.0.2</version>
 	</dependency>
   
-  ```
   ```Java
+  =========================
     SerialControl serialControl = SerialControl.getInstance();
     //SerialListener
     //TestSerialListener
     serialControl.setSerialListener(); 
-  ```
-  
-    ```Java
+    ====================================================================================================
      try {
             SerialPort serialPort = new SerialPort(new File("/dev/ttyS4"),115200,0);
 
