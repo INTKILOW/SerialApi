@@ -2,9 +2,9 @@
 
 How to use ?
 
-1、gradle
+## 1、gradle
 
-
+```Java 
 allprojects {
 	repositories {
 		maven { url 'https://www.jitpack.io' }
@@ -14,9 +14,12 @@ allprojects {
 dependencies {
 	implementation 'com.github.INTKILOW:SerialApi:1.0.2'
 }
-  
-2、maven
-  
+``` 
+
+
+## 2、maven
+
+```Java 
 <repositories>
 	<repository>
 	 	<id>jitpack.io</id>
@@ -29,10 +32,10 @@ dependencies {
 	<artifactId>SerialApi</artifactId>
 	<version>1.0.2</version>
 </dependency>
+```  
   
   
-  
-  
+
 ```Java
  
 SerialControl serialControl = SerialControl.getInstance();
@@ -45,7 +48,7 @@ serialControl.setSerialListener();
  
  
  
- ```Java
+```Java
 try {
     SerialPort serialPort = new SerialPort(new File("/dev/ttyS4"),115200,0);
 
@@ -53,4 +56,4 @@ try {
 } catch (Exception e) {
     e.printStackTrace();
 }
-  ```
+```
