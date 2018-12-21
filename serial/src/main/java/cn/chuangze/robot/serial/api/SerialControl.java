@@ -8,7 +8,6 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import cn.chuangze.robot.serial.DataHelper;
@@ -109,6 +108,22 @@ public class SerialControl extends BaseSerial {
         }
     }
 
+    /**
+     * 发送自定义命令
+     * @param bt 合成
+     */
+    public void customWithCompose(byte[] bt) {
+        if(bt == null ) return;
+        sendData(mDataHelper.compress(bt, 0, 1));
+    }
+
+    /**
+     * 发送自定义命令
+     * @param bt  不合成
+     */
+    public void customWithoutCompose(byte[] bt) {
+        sendData(bt);
+    }
     public void setSerialListener(SerialListener mSerialListener) {
         this.mSerialListener = mSerialListener;
     }
@@ -176,7 +191,7 @@ public class SerialControl extends BaseSerial {
 
     @Override
     public void embrace() {
-        sendCmdWithCompose(BaseSerial.SEND_BOTH_HAND , 6);
+        sendCmdWithCompose(BaseSerial.SEND_BOTH_HAND , 8);
     }
 
     @Override
@@ -186,22 +201,22 @@ public class SerialControl extends BaseSerial {
 
     @Override
     public void putBothHandReturn() {
-        sendCmdWithCompose(BaseSerial.SEND_BOTH_HAND, 5);
-    }
-
-    @Override
-    public void putBothHandLowest() {
         sendCmdWithCompose(BaseSerial.SEND_BOTH_HAND, 2);
     }
 
     @Override
-    public void putBothHandUp() {
+    public void putBothHandLowest() {
         sendCmdWithCompose(BaseSerial.SEND_BOTH_HAND, 3);
     }
 
     @Override
-    public void putBothHandDown() {
+    public void putBothHandUp() {
         sendCmdWithCompose(BaseSerial.SEND_BOTH_HAND, 4);
+    }
+
+    @Override
+    public void putBothHandDown() {
+        sendCmdWithCompose(BaseSerial.SEND_BOTH_HAND, 5);
     }
 
     @Override
@@ -226,10 +241,16 @@ public class SerialControl extends BaseSerial {
     }
 
     @Override
-    public void wakeUp() {
-        sendCmdWithCompose(BaseSerial.SEND_SWITCH, 6);
+    public void wakeUp(int mic) {
+        mic = mic < 0 ? 0 : mic;
+        mic = mic > 5 ? 5 : mic;
+        sendCmdWithCompose(BaseSerial.SEND_SWITCH, 6,mic);
     }
 
+    @Override
+    public void wakeUp() {
+        sendCmdWithCompose(BaseSerial.SEND_SWITCH, 6,0);
+    }
     @Override
     public void sleep() {
         sendCmdWithCompose(BaseSerial.SEND_SWITCH, 5);

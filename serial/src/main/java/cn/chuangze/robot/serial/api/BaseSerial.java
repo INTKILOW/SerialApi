@@ -203,9 +203,15 @@ public abstract class BaseSerial {
 
     /**
      * 唤醒
+     * @param mic 需要加强的mic
+     */
+    public abstract void wakeUp(int mic);
+
+
+    /**
+     * 唤醒 默认第一个mic加强
      */
     public abstract void wakeUp();
-
 
     /**
      * 休眠
@@ -306,6 +312,8 @@ public abstract class BaseSerial {
      * LAMP_MODE_LOW_BATTERY = 2;//低电量
      */
     public abstract void switchLampColor(int mode);
+
+
 
 
 }

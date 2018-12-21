@@ -214,6 +214,7 @@ public class DataHelper {
     }
 
     public byte[] compress(byte[] bt, int packages, int dataType) {
+        if(bt == null || bt.length <=0 ) return null;
 
         if(!isCompress) return bt;
 

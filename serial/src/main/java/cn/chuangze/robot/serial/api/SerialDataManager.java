@@ -39,15 +39,21 @@ public class SerialDataManager {
                             serialListener.onObstruct();//人体感应
                             break;
                         case 1:
+                            /**
+                             * 1：按下
+                             * 2：弹开
+                             * 3：长按
+                             */
+                            if (jsonObject.has("var2")) var2 = jsonObject.getInt("var2");
                             switch (var1) {
                                 case 1:
-                                    serialListener.onHeadTouched();//触摸头
+                                    serialListener.onHeadTouched(var2);//触摸头
                                     break;
                                 case 2:
-                                    serialListener.onLeftHandTouched();//左手触摸
+                                    serialListener.onLeftHandTouched(var2);//左手触摸
                                     break;
                                 case 3:
-                                    serialListener.onRightHandTouched();//右手触摸
+                                    serialListener.onRightHandTouched(var2);//右手触摸
                                     break;
                             }
                             break;
@@ -69,6 +75,12 @@ public class SerialDataManager {
                                 ((TestSerialListener) serialListener).onVersion(var1, var);
                             }
 
+                            break;
+                        case 5:
+                            String v = "";
+                            if (jsonObject.has("var2")) v = jsonObject.getString("var2");
+
+                            serialListener.onError(var1,v);
                             break;
                         default:
                             if (serialListener instanceof TestSerialListener) {

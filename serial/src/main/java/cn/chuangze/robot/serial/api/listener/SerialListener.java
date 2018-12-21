@@ -18,19 +18,39 @@ public interface SerialListener {
     void onWake(int angle);
 
     /**
+     *
+     * 1：按下
+     * 2：弹开
+     * 3：长按
      * 左手被触摸回调
      */
-    void onLeftHandTouched();
+    void onLeftHandTouched(int type);
 
     /**
+     *
+     * 1：按下
+     * 2：弹开
+     * 3：长按
      * 右手被触摸回调
      */
-    void onRightHandTouched();
+    void onRightHandTouched(int type);
 
     /**
+     *
+     * 1：按下
+     * 2：弹开
+     * 3：长按
      * 头部被触摸回调
      */
-    void onHeadTouched();
+    void onHeadTouched(int type);
+
+
+    /**
+     * 出错事件
+     * @param var1 类型
+     * @param var2 原因
+     */
+    void onError(int var1,String var2);
 
     /**
      * 人体感应
