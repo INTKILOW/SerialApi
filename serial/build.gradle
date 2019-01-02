@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven' // ADD THIS
-group='com.github.INTKILOW'
+group = 'com.github.INTKILOW'
 android {
     compileSdkVersion 28
     buildToolsVersion '28.0.2'
@@ -14,7 +14,7 @@ android {
 
         }
         ndk {
-            abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+            abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64", "armeabi"
         }
     }
 
@@ -24,7 +24,7 @@ android {
             buildConfigField("boolean", "LOG_DEBUG", "false")
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug{
+        debug {
             buildConfigField("boolean", "LOG_DEBUG", "true")
         }
     }

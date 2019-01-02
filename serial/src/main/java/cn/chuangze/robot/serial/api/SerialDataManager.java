@@ -66,6 +66,9 @@ public class SerialDataManager {
                                 case 2:
                                     serialListener.onSleep();//休息
                                     break;
+                                case 3:
+                                    serialListener.shutDown();//关机
+                                    break;
                             }
                             break;
 

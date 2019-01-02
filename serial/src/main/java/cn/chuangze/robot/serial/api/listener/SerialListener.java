@@ -18,6 +18,11 @@ public interface SerialListener {
     void onWake(int angle);
 
     /**
+     * 关机命令
+     */
+    void shutDown();
+
+    /**
      *
      * 1：按下
      * 2：弹开

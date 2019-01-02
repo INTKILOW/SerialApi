@@ -128,6 +128,13 @@ public class SerialControl extends BaseSerial {
         this.mSerialListener = mSerialListener;
     }
 
+
+    public void onDestroy(){
+        mSerialPort.stopListening();
+        mSerialPort.close();
+        mDataHelper.onDestroy();
+    }
+
     @Override
     public void putLeftHandTop() {
         sendCmdWithCompose(BaseSerial.SEND_LEFT_HAND, 1);
