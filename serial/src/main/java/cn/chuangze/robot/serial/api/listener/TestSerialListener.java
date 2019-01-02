@@ -23,5 +23,12 @@ public interface TestSerialListener extends SerialListener {
     void onDefault(String json);
 
 
+    /**
+     * 数据回调
+     * @param str 不是json数据回调
+     */
+    void onDefaultStr(String str);
+
+
 
 }
